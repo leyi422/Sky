@@ -14,6 +14,7 @@
 		948F7A93228E5809008BDBC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948F7A91228E5809008BDBC8 /* LaunchScreen.storyboard */; };
 		948F7A9E228E5809008BDBC8 /* SkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F7A9D228E5809008BDBC8 /* SkyTests.swift */; };
 		948F7AA9228E5809008BDBC8 /* SkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948F7AA8228E5809008BDBC8 /* SkyUITests.swift */; };
+		948F7ABC228E59EA008BDBC8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 948F7ABB228E59EA008BDBC8 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		948F7AA4228E5809008BDBC8 /* SkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		948F7AA8228E5809008BDBC8 /* SkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyUITests.swift; sourceTree = "<group>"; };
 		948F7AAA228E5809008BDBC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		948F7ABB228E59EA008BDBC8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		948F7A7C228E5806008BDBC8 = {
 			isa = PBXGroup;
 			children = (
+				948F7ABB228E59EA008BDBC8 /* Default-568h@2x.png */,
 				948F7A87228E5806008BDBC8 /* Sky */,
 				948F7A9C228E5809008BDBC8 /* SkyTests */,
 				948F7AA7228E5809008BDBC8 /* SkyUITests */,
@@ -97,12 +100,11 @@
 		948F7A87228E5806008BDBC8 /* Sky */ = {
 			isa = PBXGroup;
 			children = (
-				948F7A88228E5806008BDBC8 /* AppDelegate.swift */,
-				948F7A8A228E5806008BDBC8 /* ViewController.swift */,
-				948F7A8C228E5806008BDBC8 /* Main.storyboard */,
-				948F7A8F228E5809008BDBC8 /* Assets.xcassets */,
-				948F7A91228E5809008BDBC8 /* LaunchScreen.storyboard */,
-				948F7A94228E5809008BDBC8 /* Info.plist */,
+				948F7ABA228E5955008BDBC8 /* ViewControllers */,
+				948F7AB9228E593A008BDBC8 /* SupportingFiles */,
+				948F7AB8228E591B008BDBC8 /* Storyboards */,
+				948F7AB7228E590C008BDBC8 /* Resources */,
+				948F7AB6228E58F0008BDBC8 /* Delegates */,
 			);
 			path = Sky;
 			sourceTree = "<group>";
@@ -123,6 +125,47 @@
 				948F7AAA228E5809008BDBC8 /* Info.plist */,
 			);
 			path = SkyUITests;
+			sourceTree = "<group>";
+		};
+		948F7AB6228E58F0008BDBC8 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				948F7A88228E5806008BDBC8 /* AppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		948F7AB7228E590C008BDBC8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				948F7A8F228E5809008BDBC8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		948F7AB8228E591B008BDBC8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				948F7A8C228E5806008BDBC8 /* Main.storyboard */,
+				948F7A91228E5809008BDBC8 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		948F7AB9228E593A008BDBC8 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				948F7A94228E5809008BDBC8 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		948F7ABA228E5955008BDBC8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				948F7A8A228E5806008BDBC8 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				948F7A93228E5809008BDBC8 /* LaunchScreen.storyboard in Resources */,
+				948F7ABC228E59EA008BDBC8 /* Default-568h@2x.png in Resources */,
 				948F7A90228E5809008BDBC8 /* Assets.xcassets in Resources */,
 				948F7A8E228E5806008BDBC8 /* Main.storyboard in Resources */,
 			);
@@ -433,7 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Sky/Info.plist;
+				INFOPLIST_FILE = Sky/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,7 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Sky/Info.plist;
+				INFOPLIST_FILE = Sky/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
