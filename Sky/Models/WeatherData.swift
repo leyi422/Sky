@@ -14,9 +14,21 @@ struct WeatherData: Codable {
     
     struct CurrentWeather: Codable {
         let time: Date
-        let summary: Double
+        let summary: String
         let icon: String
         let temperature: Double
         let humidity: Double
+    }
+}
+
+extension WeatherData.CurrentWeather: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.time == rhs.time && lhs.summary == rhs.summary && lhs.icon == rhs.icon && lhs.temperature == rhs.temperature && lhs.humidity == rhs.humidity
+    }
+}
+
+extension WeatherData: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude && lhs.currently == rhs.currently
     }
 }
