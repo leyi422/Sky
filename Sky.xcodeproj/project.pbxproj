@@ -99,13 +99,11 @@
 		6279F199287BAF5100BDF9F8 /* Sky */ = {
 			isa = PBXGroup;
 			children = (
-				6279F19A287BAF5100BDF9F8 /* AppDelegate.swift */,
-				6279F19C287BAF5100BDF9F8 /* SceneDelegate.swift */,
-				6279F19E287BAF5100BDF9F8 /* ViewController.swift */,
-				6279F1A0287BAF5100BDF9F8 /* Main.storyboard */,
-				6279F1A3287BAF5500BDF9F8 /* Assets.xcassets */,
-				6279F1A5287BAF5500BDF9F8 /* LaunchScreen.storyboard */,
-				6279F1A8287BAF5500BDF9F8 /* Info.plist */,
+				6279F1CE287BB04100BDF9F8 /* ViewControllers */,
+				6279F1CD287BB01F00BDF9F8 /* SupportingFiles */,
+				6279F1CC287BAFE500BDF9F8 /* Storyboards */,
+				6279F1CA287BAF9A00BDF9F8 /* Delegates */,
+				6279F1CB287BAFC200BDF9F8 /* Resources */,
 			);
 			path = Sky;
 			sourceTree = "<group>";
@@ -125,6 +123,48 @@
 				6279F1BD287BAF5500BDF9F8 /* SkyUITestsLaunchTests.swift */,
 			);
 			path = SkyUITests;
+			sourceTree = "<group>";
+		};
+		6279F1CA287BAF9A00BDF9F8 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				6279F19A287BAF5100BDF9F8 /* AppDelegate.swift */,
+				6279F19C287BAF5100BDF9F8 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		6279F1CB287BAFC200BDF9F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6279F1A3287BAF5500BDF9F8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6279F1CC287BAFE500BDF9F8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6279F1A0287BAF5100BDF9F8 /* Main.storyboard */,
+				6279F1A5287BAF5500BDF9F8 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		6279F1CD287BB01F00BDF9F8 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6279F1A8287BAF5500BDF9F8 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		6279F1CE287BB04100BDF9F8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6279F19E287BAF5100BDF9F8 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,7 +479,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VSXCE62LRG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sky/Info.plist;
+				INFOPLIST_FILE = Sky/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -454,7 +494,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -467,7 +507,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VSXCE62LRG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sky/Info.plist;
+				INFOPLIST_FILE = Sky/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -482,7 +522,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
