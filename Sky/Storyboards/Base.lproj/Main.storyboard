@@ -47,14 +47,23 @@
             </objects>
             <point key="canvasLocation" x="-10" y="142"/>
         </scene>
-        <!--View Controller-->
+        <!--Current Weather View Controller-->
         <scene sceneID="WKT-iK-7vg">
             <objects>
-                <viewController id="e4c-lZ-cdh" sceneMemberID="viewController">
+                <viewController id="e4c-lZ-cdh" customClass="CurrentWeatherViewController" customModule="Sky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J3L-qo-Anf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="322.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="322"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="JFr-jZ-xJt">
+                                <rect key="frame" x="197" y="151.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12l-0Y-8Tx">
+                                <rect key="frame" x="28" y="151" width="358" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gm5-yB-Xep">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="322.5"/>
                                 <subviews>
@@ -69,11 +78,17 @@
                                         <rect key="frame" x="8" y="8" width="68" height="58"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="LocationBtn"/>
+                                        <connections>
+                                            <action selector="locationButtonPressed:" destination="e4c-lZ-cdh" eventType="touchUpInside" id="HQD-Hi-eCv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-Vp-KW5">
                                         <rect key="frame" x="338" y="8" width="68" height="58"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="Setting"/>
+                                        <connections>
+                                            <action selector="settingsButtonPressed:" destination="e4c-lZ-cdh" eventType="touchUpInside" id="jGf-V0-ioy"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Beijing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inc-Kq-rjG">
                                         <rect key="frame" x="84" y="21" width="246" height="32"/>
@@ -134,11 +149,27 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="gm5-yB-Xep" secondAttribute="bottom" id="Axa-bJ-phc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="12l-0Y-8Tx" secondAttribute="trailing" constant="8" id="FgH-Vd-TXD"/>
                             <constraint firstItem="gm5-yB-Xep" firstAttribute="top" secondItem="J3L-qo-Anf" secondAttribute="top" id="HXT-rH-5XB"/>
                             <constraint firstItem="gm5-yB-Xep" firstAttribute="leading" secondItem="J3L-qo-Anf" secondAttribute="leading" id="LhT-6r-A0c"/>
                             <constraint firstAttribute="trailing" secondItem="gm5-yB-Xep" secondAttribute="trailing" id="Ymf-LK-N3k"/>
+                            <constraint firstItem="12l-0Y-8Tx" firstAttribute="centerY" secondItem="J3L-qo-Anf" secondAttribute="centerY" id="aEB-JU-zOS"/>
+                            <constraint firstItem="JFr-jZ-xJt" firstAttribute="centerX" secondItem="J3L-qo-Anf" secondAttribute="centerX" id="f9A-rS-K0v"/>
+                            <constraint firstItem="12l-0Y-8Tx" firstAttribute="leading" secondItem="J3L-qo-Anf" secondAttribute="leadingMargin" constant="8" id="tTI-8x-8Ke"/>
+                            <constraint firstItem="JFr-jZ-xJt" firstAttribute="centerY" secondItem="J3L-qo-Anf" secondAttribute="centerY" id="xuN-2s-zmV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="JFr-jZ-xJt" id="brq-xK-t9v"/>
+                        <outlet property="dateLabel" destination="SgB-pl-wcs" id="Vvi-Jm-Lvy"/>
+                        <outlet property="humidityLabel" destination="YqG-EZ-N0b" id="P4c-P7-NLy"/>
+                        <outlet property="loadingFailedLabel" destination="12l-0Y-8Tx" id="km6-wz-KgN"/>
+                        <outlet property="locationLabel" destination="inc-Kq-rjG" id="vDV-uf-8yI"/>
+                        <outlet property="summaryLabel" destination="MIF-Qa-EM1" id="qAl-vn-q1F"/>
+                        <outlet property="temperatureLabel" destination="MjP-NW-nQh" id="HnV-JC-A4w"/>
+                        <outlet property="weatherContainerView" destination="gm5-yB-Xep" id="rNF-kp-7bE"/>
+                        <outlet property="weatherIcon" destination="t7B-Ov-EcV" id="BWm-G3-W1b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vp2-9e-Ssr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZb-AK-6Ah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784" y="252"/>
+            <point key="canvasLocation" x="783" y="338"/>
         </scene>
     </scenes>
     <resources>
