@@ -31,15 +31,7 @@ class CurrentWeatherViewController: WeatherViewController {
         delegate?.settingsButtonPressed(controller: self)
     }
     
-    var now: WeatherData? {
-        didSet {
-            DispatchQueue.main.async {
-                self.updateView()
-            }
-        }
-    }
-    
-    var location: Location? {
+    var viewModel: CurrentWeatherViewModel? {
         didSet {
             DispatchQueue.main.async {
                 self.updateView()
@@ -50,8 +42,8 @@ class CurrentWeatherViewController: WeatherViewController {
     func updateView() {
         activityIndicatorView.stopAnimating()
         
-        if let now = now, let location = location {
-            updateWeatherContainer(with: now, at: location)
+        if let vm = viewModel, vm.isUpdateReady {
+            updateWeatherContainer(with: vm)
         }
         else {
             loadingFailedLabel.isHidden = false
@@ -59,17 +51,15 @@ class CurrentWeatherViewController: WeatherViewController {
         }
     }
     
-    func updateWeatherContainer(with data: WeatherData, at location: Location) {
+    func updateWeatherContainer(with vm: CurrentWeatherViewModel) {
         weatherContainerView.isHidden = false
         
-        locationLabel.text = location.name
-        temperatureLabel.text = String(format: "%.1f ℃", data.currently.temperature)
-        weatherIcon.image = weatherIcon(of: data.currently.icon)
-        humidityLabel.text = String(format: "%.1f %%", data.currently.humidity * 100)
-        summaryLabel.text = data.currently.summary
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E, dd MMMM"
-        dateLabel.text = formatter.string(from: data.currently.time)
+        locationLabel.text = vm.city
+        temperatureLabel.text = vm.temperature
+        weatherIcon.image = vm.weatherIcon
+        humidityLabel.text = vm.humidity
+        summaryLabel.text = vm.summary
+        dateLabel.text = vm.date
     }
 
     override func viewDidLoad() {
