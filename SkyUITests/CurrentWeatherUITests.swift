@@ -18,6 +18,20 @@ class CurrentWeatherUITests: XCTestCase {
         continueAfterFailure = false
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app.launchArguments += ["UI_TESTING"]
+        app.launchEnvironment["FakeJSON"] = """
+        {
+            "latitude": 52,
+            "longitude": 100,
+            "currently": {
+                "time": 1657525822,
+                "summary": "Overcast",
+                "icon": "cloudy",
+                "temperature": 55.96,
+                "humidity": 0.5
+            }
+        }
+        """
         app.launch()
     }
 
@@ -27,11 +41,11 @@ class CurrentWeatherUITests: XCTestCase {
 
     func test_location_button_exists() throws {
         let locationBtn = app.buttons["LocationBtn"]
-        let exists = NSPredicate(format: "exists == true")
-        
-        expectation(for: exists, evaluatedWith: locationBtn)
-        waitForExpectations(timeout: 5)
-        
         XCTAssert(locationBtn.exists)
+    }
+    
+    func test_current_weather_display() {
+        XCTAssert(app.images["WeatherIcon"].exists)
+        XCTAssert(app.staticTexts["SummaryLabel"].exists)
     }
 }
