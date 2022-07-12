@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sky" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="Sky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,13 +19,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuH-p5-0mr">
                                 <rect key="frame" x="0.0" y="378.5" width="414" height="483.5"/>
                                 <connections>
-                                    <segue destination="0Xd-J0-awf" kind="embed" id="Wv3-FN-lxA"/>
+                                    <segue destination="0Xd-J0-awf" kind="embed" identifier="" id="Wv3-FN-lxA"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1Y-l8-2iZ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="322.5"/>
                                 <connections>
-                                    <segue destination="e4c-lZ-cdh" kind="embed" id="37y-wJ-rLC"/>
+                                    <segue destination="e4c-lZ-cdh" kind="embed" identifier="SegueCurrentWeather" id="37y-wJ-rLC"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -52,7 +52,7 @@
             <objects>
                 <viewController id="e4c-lZ-cdh" customClass="CurrentWeatherViewController" customModule="Sky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J3L-qo-Anf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="322"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="322.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="JFr-jZ-xJt">
@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vp2-9e-Ssr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784" y="17"/>
+            <point key="canvasLocation" x="857" y="-34"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="sGu-FR-RYo">
@@ -187,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZb-AK-6Ah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="338"/>
+            <point key="canvasLocation" x="857" y="307"/>
         </scene>
     </scenes>
     <resources>

@@ -65,7 +65,7 @@ class CurrentWeatherViewController: WeatherViewController {
         locationLabel.text = location.name
         temperatureLabel.text = String(format: "%.1f ℃", data.currently.temperature)
         weatherIcon.image = weatherIcon(of: data.currently.icon)
-        humidityLabel.text = String(format: "%.1f", data.currently.humidity)
+        humidityLabel.text = String(format: "%.1f %%", data.currently.humidity * 100)
         summaryLabel.text = data.currently.summary
         let formatter = DateFormatter()
         formatter.dateFormat = "E, dd MMMM"
