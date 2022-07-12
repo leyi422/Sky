@@ -31,6 +31,7 @@
 		6279F1F0287C2E1400BDF9F8 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279F1EF287C2E1400BDF9F8 /* Double.swift */; };
 		6279F1F4287D218500BDF9F8 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279F1F3287D218500BDF9F8 /* CurrentWeatherViewModel.swift */; };
 		6279F1F6287D22D700BDF9F8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279F1F5287D22D700BDF9F8 /* UIImage.swift */; };
+		6279F1F8287D6A9F00BDF9F8 /* CurrentWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279F1F7287D6A9F00BDF9F8 /* CurrentWeatherUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		6279F1EF287C2E1400BDF9F8 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		6279F1F3287D218500BDF9F8 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
 		6279F1F5287D22D700BDF9F8 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		6279F1F7287D6A9F00BDF9F8 /* CurrentWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				6279F1BB287BAF5500BDF9F8 /* SkyUITests.swift */,
+				6279F1F7287D6A9F00BDF9F8 /* CurrentWeatherUITests.swift */,
 				6279F1BD287BAF5500BDF9F8 /* SkyUITestsLaunchTests.swift */,
 			);
 			path = SkyUITests;
@@ -440,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6279F1F8287D6A9F00BDF9F8 /* CurrentWeatherUITests.swift in Sources */,
 				6279F1BE287BAF5500BDF9F8 /* SkyUITestsLaunchTests.swift in Sources */,
 				6279F1BC287BAF5500BDF9F8 /* SkyUITests.swift in Sources */,
 			);

@@ -76,6 +76,7 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEV-gw-sIq">
                                         <rect key="frame" x="8" y="8" width="68" height="58"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="LocationBtn"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="LocationBtn"/>
                                         <connections>
@@ -146,6 +147,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="d1h-hC-0N6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="gm5-yB-Xep" secondAttribute="bottom" id="Axa-bJ-phc"/>
@@ -182,6 +184,7 @@
                     <view key="view" contentMode="scaleToFill" id="vhj-bv-dHZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UuW-Ab-c8n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
