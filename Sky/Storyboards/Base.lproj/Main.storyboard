@@ -19,7 +19,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuH-p5-0mr">
                                 <rect key="frame" x="0.0" y="378.5" width="414" height="483.5"/>
                                 <connections>
-                                    <segue destination="0Xd-J0-awf" kind="embed" identifier="" id="Wv3-FN-lxA"/>
+                                    <segue destination="0Xd-J0-awf" kind="embed" identifier="SegueWeekWeather" id="Wv3-FN-lxA"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1Y-l8-2iZ">
@@ -52,7 +52,7 @@
             <objects>
                 <viewController id="e4c-lZ-cdh" customClass="CurrentWeatherViewController" customModule="Sky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J3L-qo-Anf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="322.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="322"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="JFr-jZ-xJt">
@@ -186,7 +186,7 @@
             <objects>
                 <viewController id="0Xd-J0-awf" customClass="WeekWeatherViewController" customModule="Sky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vhj-bv-dHZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="483.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="483"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="643-o5-oGb">
@@ -272,6 +272,7 @@
                                         </prototypes>
                                         <connections>
                                             <outlet property="dataSource" destination="0Xd-J0-awf" id="BpJ-lF-G8W"/>
+                                            <outlet property="delegate" destination="0Xd-J0-awf" id="PcO-j8-2Y3"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
