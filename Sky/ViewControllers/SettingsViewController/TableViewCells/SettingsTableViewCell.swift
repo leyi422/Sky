@@ -17,5 +17,10 @@ class SettingsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configure(with vm: SettingsRepresentable) {
+        label.text = vm.labelText
+        accessoryType = vm.accessory
+    }
 
 }
