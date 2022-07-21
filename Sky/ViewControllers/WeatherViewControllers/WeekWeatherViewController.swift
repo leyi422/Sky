@@ -67,11 +67,7 @@ extension WeekWeatherViewController: UITableViewDataSource {
         }
         
         if let vm = viewModel {
-            row.week.text = vm.week(for: indexPath.row)
-            row.date.text = vm.date(for: indexPath.row)
-            row.temperature.text = vm.temperature(for: indexPath.row)
-            row.weatherIcon.image = vm.weatherIcon(for: indexPath.row)
-            row.humid.text = vm.humidity(for: indexPath.row)
+            row.configure(with: vm.viewModel(for: indexPath.row))
         }
         return row
     }

@@ -21,5 +21,13 @@ class WeekWeatherTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configure(with vm: WeekWeatherDayRepresentable) {
+        week.text = vm.week
+        date.text = vm.date
+        temperature.text = vm.temperature
+        weatherIcon.image = vm.weatherIcon
+        humid.text = vm.humidity
+    }
 
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SettingsDateViewModel: SettingsRepresentable {
+struct SettingsDateViewModel {
     let dateMode: DateMode
     
     var labelText: String {
@@ -18,3 +18,5 @@ struct SettingsDateViewModel: SettingsRepresentable {
         return UserDefaults.dateMode() == dateMode ? .checkmark : .none
     }
 }
+
+extension SettingsDateViewModel: SettingsRepresentable {}

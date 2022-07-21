@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SettingsTemperatureViewModel: SettingsRepresentable {
+struct SettingsTemperatureViewModel {
     let temperatureMode: TemperatureMode
     
     var labelText: String {
@@ -18,3 +18,5 @@ struct SettingsTemperatureViewModel: SettingsRepresentable {
         return UserDefaults.temperatureMode() == temperatureMode ? .checkmark : .none
     }
 }
+
+extension SettingsTemperatureViewModel: SettingsRepresentable {}
