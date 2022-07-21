@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SettingsDateViewModel {
+struct SettingsDateViewModel: SettingsRepresentable {
     let dateMode: DateMode
     
     var labelText: String {
