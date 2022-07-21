@@ -104,6 +104,7 @@ extension SettingsViewController {
             
             if let newMode = DateMode(rawValue: indexPath.row) {
                 UserDefaults.setDateMode(to: newMode)
+                tableView.reloadData()
             }
             
             delegate?.controllerDidChangeDateMode(controller: self)
@@ -115,9 +116,12 @@ extension SettingsViewController {
             
             if let newMode = TemperatureMode(rawValue: indexPath.row) {
                 UserDefaults.setTemperatureMode(to: newMode)
+                tableView.reloadData()
             }
             
             delegate?.controllerDidChangeTemperatureMode(controller: self)
         }
+        
+        tableView.reloadSections(IndexSet(integer: indexPath.section), with: .none)
     }
 }
