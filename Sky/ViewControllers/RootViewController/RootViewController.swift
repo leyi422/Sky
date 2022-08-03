@@ -16,6 +16,7 @@ class RootViewController: UIViewController {
     private let segueCurrentWeather = "SegueCurrentWeather"
     private let segueWeekWeather = "SegueWeekWeather"
     private let segueSettings = "SegueSettings"
+    private let segueLocations = "SegueLocations"
     
     @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
     }
@@ -50,6 +51,17 @@ class RootViewController: UIViewController {
             }
             
             destination.delegate = self
+        case segueLocations:
+            guard let navigationController = segue.destination as? UINavigationController else {
+                fatalError("Invalid destination view controller.")
+            }
+            
+            guard let destination = navigationController.topViewController as? LocationsViewController else {
+                fatalError("Invalid destination view controller.")
+            }
+            
+            destination.delegate = self
+            destination.currentLocation = currentLoaction
         default:
             break
         }
@@ -92,7 +104,7 @@ class RootViewController: UIViewController {
                 dump(error)
             }
             else if let city = placemarks?.first?.locality {
-                let l = Location(name: city, latitude: currentLoaction.coordinate.latitude, longidude: currentLoaction.coordinate.longitude)
+                let l = Location(name: city, latitude: currentLoaction.coordinate.latitude, longitude: currentLoaction.coordinate.longitude)
                 self.currentWeatherController.viewModel?.location = l
             }
         }
@@ -154,7 +166,7 @@ extension RootViewController: CLLocationManagerDelegate {
 
 extension RootViewController: CurrentWeatherViewControllerDetegate {
     func locationButtonPressed(controller: CurrentWeatherViewController) {
-        
+        performSegue(withIdentifier: segueLocations, sender: self)
     }
     
     func settingsButtonPressed(controller: CurrentWeatherViewController) {
@@ -177,3 +189,8 @@ extension RootViewController: SettingsViewControllerDelegate {
     }
 }
 
+extension RootViewController: LocationsViewControllerDelegae {
+    func controller(_ controller: LocationsViewController, didSelectLocation location: CLLocation) {
+        currentLoaction = location
+    }
+}

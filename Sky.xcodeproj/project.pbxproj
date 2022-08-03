@@ -23,6 +23,12 @@
 		6229E20828892F9600AB8712 /* DarkSky.json in Resources */ = {isa = PBXBuildFile; fileRef = 6229E20728892F9600AB8712 /* DarkSky.json */; };
 		6229E20B2889367100AB8712 /* SettingsDateViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229E20A2889367100AB8712 /* SettingsDateViewModelTests.swift */; };
 		6229E20D28893B0900AB8712 /* CurrentWeatherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229E20C28893B0900AB8712 /* CurrentWeatherViewModelTests.swift */; };
+		6229E210288946E800AB8712 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229E20F288946E800AB8712 /* LocationsViewController.swift */; };
+		6229E212288946FB00AB8712 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229E211288946FB00AB8712 /* AddLocationViewController.swift */; };
+		6229E2152889482A00AB8712 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229E2142889482A00AB8712 /* LocationTableViewCell.swift */; };
+		6229E218288948F600AB8712 /* LocationRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229E217288948F600AB8712 /* LocationRepresentable.swift */; };
+		6229E21B2889495A00AB8712 /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229E21A2889495A00AB8712 /* LocationsViewModel.swift */; };
+		6229E21D28894A0D00AB8712 /* CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6229E21C28894A0D00AB8712 /* CLLocation.swift */; };
 		6279F19B287BAF5100BDF9F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279F19A287BAF5100BDF9F8 /* AppDelegate.swift */; };
 		6279F19D287BAF5100BDF9F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279F19C287BAF5100BDF9F8 /* SceneDelegate.swift */; };
 		6279F19F287BAF5100BDF9F8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279F19E287BAF5100BDF9F8 /* RootViewController.swift */; };
@@ -82,6 +88,12 @@
 		6229E20728892F9600AB8712 /* DarkSky.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DarkSky.json; sourceTree = "<group>"; };
 		6229E20A2889367100AB8712 /* SettingsDateViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDateViewModelTests.swift; sourceTree = "<group>"; };
 		6229E20C28893B0900AB8712 /* CurrentWeatherViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModelTests.swift; sourceTree = "<group>"; };
+		6229E20F288946E800AB8712 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		6229E211288946FB00AB8712 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		6229E2142889482A00AB8712 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		6229E217288948F600AB8712 /* LocationRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepresentable.swift; sourceTree = "<group>"; };
+		6229E21A2889495A00AB8712 /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
+		6229E21C28894A0D00AB8712 /* CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocation.swift; sourceTree = "<group>"; };
 		6279F197287BAF5100BDF9F8 /* Sky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6279F19A287BAF5100BDF9F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6279F19C287BAF5100BDF9F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +218,42 @@
 			path = Stubs;
 			sourceTree = "<group>";
 		};
+		6229E20E2889469F00AB8712 /* LocationsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6229E2192889493B00AB8712 /* ViewModels */,
+				6229E216288948DB00AB8712 /* Protocols */,
+				6229E2132889480200AB8712 /* TableViewCells */,
+				6229E20F288946E800AB8712 /* LocationsViewController.swift */,
+				6229E211288946FB00AB8712 /* AddLocationViewController.swift */,
+			);
+			path = LocationsViewController;
+			sourceTree = "<group>";
+		};
+		6229E2132889480200AB8712 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				6229E2142889482A00AB8712 /* LocationTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		6229E216288948DB00AB8712 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6229E217288948F600AB8712 /* LocationRepresentable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6229E2192889493B00AB8712 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6229E21A2889495A00AB8712 /* LocationsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		6279F18E287BAF5100BDF9F8 = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +348,7 @@
 		6279F1CE287BB04100BDF9F8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6229E20E2889469F00AB8712 /* LocationsViewController */,
 				6229E1F02887FE5700AB8712 /* SettingsViewController */,
 				6279F1F1287D115500BDF9F8 /* RootViewController */,
 				6279F1EA287C29F800BDF9F8 /* WeatherViewControllers */,
@@ -350,6 +399,7 @@
 				6279F1EF287C2E1400BDF9F8 /* Double.swift */,
 				6279F1F5287D22D700BDF9F8 /* UIImage.swift */,
 				6229E1EE2887EBE000AB8712 /* UserDefaults.swift */,
+				6229E21C28894A0D00AB8712 /* CLLocation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -521,10 +571,14 @@
 				6229E1FA2888F09E00AB8712 /* SettingsTemperatureViewModel.swift in Sources */,
 				6279F1EC287C2A2900BDF9F8 /* WeatherViewController.swift in Sources */,
 				6279F1F4287D218500BDF9F8 /* CurrentWeatherViewModel.swift in Sources */,
+				6229E2152889482A00AB8712 /* LocationTableViewCell.swift in Sources */,
 				6279F1D9287BD23A00BDF9F8 /* WeatherDataManager.swift in Sources */,
 				6229E1E92887A56000AB8712 /* WeekWeatherTableViewCell.swift in Sources */,
+				6229E21B2889495A00AB8712 /* LocationsViewModel.swift in Sources */,
 				6229E1EF2887EBE000AB8712 /* UserDefaults.swift in Sources */,
+				6229E212288946FB00AB8712 /* AddLocationViewController.swift in Sources */,
 				6279F19B287BAF5100BDF9F8 /* AppDelegate.swift in Sources */,
+				6229E21D28894A0D00AB8712 /* CLLocation.swift in Sources */,
 				6279F1D4287BCEB600BDF9F8 /* Location.swift in Sources */,
 				6279F1E5287C040E00BDF9F8 /* URLSessionDataTaskProtocol.swift in Sources */,
 				6279F1F0287C2E1400BDF9F8 /* Double.swift in Sources */,
@@ -541,6 +595,8 @@
 				6279F1D6287BCFBE00BDF9F8 /* WeatherData.swift in Sources */,
 				6229E1E62887A43300AB8712 /* WeekWeatherViewController.swift in Sources */,
 				6229E1FF2888FA0C00AB8712 /* WeekWeatherDayViewModel.swift in Sources */,
+				6229E210288946E800AB8712 /* LocationsViewController.swift in Sources */,
+				6229E218288948F600AB8712 /* LocationRepresentable.swift in Sources */,
 				6229E1F52887FEE300AB8712 /* SettingsTableViewCell.swift in Sources */,
 				6279F1E7287C043500BDF9F8 /* URLSessionDataTask.swift in Sources */,
 				6229E2012888FBA300AB8712 /* WeekWeatherDayRepresentable.swift in Sources */,

@@ -53,7 +53,7 @@ class SettingsDateViewModelTests: XCTestCase {
         UserDefaults.standard.set(dateMode.rawValue, forKey: UserDefaultsKeys.dateMode)
         let vm = SettingsDateViewModel(dateMode: dateMode)
         
-        XCTAssertEqual(vm.accessory, UITableViewCell.AccessoryType.checkmark)
+        XCTAssertEqual(vm.accessory, UITableViewCell.AccessoryType.checkmark) 
     }
     
     func test_digit_date_mode_unselected() {
