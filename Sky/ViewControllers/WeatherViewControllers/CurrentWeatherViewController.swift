@@ -41,18 +41,18 @@ class CurrentWeatherViewController: WeatherViewController {
             return !location.isEmpty && !weather.isEmpty
         }
         .share(replay: 1, scope: .whileConnected)
-        .observe(on: MainScheduler.instance)
+        .asDriver(onErrorJustReturn: (CurrentLocationViewModel.empty, CurrentWeatherViewModel.empty))
         
-        viewModel.map { _ in false }.bind(to: activityIndicatorView.rx.isAnimating).disposed(by: bag)
-        viewModel.map { _ in false }.bind(to: weatherContainerView.rx.isHidden).disposed(by: bag)
+        viewModel.map { _ in false }.drive(activityIndicatorView.rx.isAnimating).disposed(by: bag)
+        viewModel.map { _ in false }.drive(weatherContainerView.rx.isHidden).disposed(by: bag)
         
-        viewModel.map { $0.0.city }.bind(to: locationLabel.rx.text ).disposed(by: bag)
+        viewModel.map { $0.0.city }.drive(locationLabel.rx.text ).disposed(by: bag)
         
-        viewModel.map { $0.1.temperature }.bind(to: temperatureLabel.rx.text ).disposed(by: bag)
-        viewModel.map { $0.1.weatherIcon }.bind(to: weatherIcon.rx.image ).disposed(by: bag)
-        viewModel.map { $0.1.humidity }.bind(to: humidityLabel.rx.text ).disposed(by: bag)
-        viewModel.map { $0.1.summary }.bind(to: summaryLabel.rx.text ).disposed(by: bag)
-        viewModel.map { $0.1.date }.bind(to: dateLabel.rx.text ).disposed(by: bag)
+        viewModel.map { $0.1.temperature }.drive(temperatureLabel.rx.text ).disposed(by: bag)
+        viewModel.map { $0.1.weatherIcon }.drive(weatherIcon.rx.image ).disposed(by: bag)
+        viewModel.map { $0.1.humidity }.drive(humidityLabel.rx.text ).disposed(by: bag)
+        viewModel.map { $0.1.summary }.drive(summaryLabel.rx.text ).disposed(by: bag)
+        viewModel.map { $0.1.date }.drive(dateLabel.rx.text ).disposed(by: bag)
     }
     
     func updateView() {
