@@ -129,7 +129,11 @@ class RootViewController: UIViewController {
         locationManager.delegate = self
         
         if locationManager.authorizationStatus == .authorizedWhenInUse {
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
+            locationManager.rx.didUpdateLocations.take(1).subscribe(onNext: {
+                print("update location")
+                self.currentLoaction = $0.first
+            }).disposed(by: bag)
         }
         else {
             locationManager.requestWhenInUseAuthorization()

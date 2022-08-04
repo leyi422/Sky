@@ -56,6 +56,7 @@
 		6289A98A289B6E23005A6864 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6289A989289B6E23005A6864 /* RxCocoa */; };
 		6289A98C289B6E23005A6864 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6289A98B289B6E23005A6864 /* RxSwift */; };
 		6289A98E289B75A0005A6864 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6289A98D289B75A0005A6864 /* CurrentLocationViewModel.swift */; };
+		6289A990289BC92D005A6864 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6289A98F289BC92D005A6864 /* CLLocationManager+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		6279F1F5287D22D700BDF9F8 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		6279F1F7287D6A9F00BDF9F8 /* CurrentWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherUITests.swift; sourceTree = "<group>"; };
 		6289A98D289B75A0005A6864 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
+		6289A98F289BC92D005A6864 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +411,7 @@
 				6279F1F5287D22D700BDF9F8 /* UIImage.swift */,
 				6229E1EE2887EBE000AB8712 /* UserDefaults.swift */,
 				6229E21C28894A0D00AB8712 /* CLLocation.swift */,
+				6289A98F289BC92D005A6864 /* CLLocationManager+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				6279F1D6287BCFBE00BDF9F8 /* WeatherData.swift in Sources */,
 				6229E1E62887A43300AB8712 /* WeekWeatherViewController.swift in Sources */,
 				6229E1FF2888FA0C00AB8712 /* WeekWeatherDayViewModel.swift in Sources */,
+				6289A990289BC92D005A6864 /* CLLocationManager+Rx.swift in Sources */,
 				6229E210288946E800AB8712 /* LocationsViewController.swift in Sources */,
 				6229E218288948F600AB8712 /* LocationRepresentable.swift in Sources */,
 				6229E1F52887FEE300AB8712 /* SettingsTableViewCell.swift in Sources */,
