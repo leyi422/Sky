@@ -454,6 +454,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="I28-Tc-SvA" id="IIm-Ce-RH5"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" id="Scn-A4-ccQ" customClass="LocationTableViewCell" customModule="Sky" customModuleProvider="target">
@@ -487,10 +490,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="10n-Po-F0S">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="oV0-DI-MQs"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="oV0-DI-MQs">
+                            <connections>
+                                <segue destination="LS9-cS-y0T" kind="unwind" unwindAction="unwindToLocationsViewControllerWithSegue:" id="7h1-SA-sfK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="S1x-N4-7Ls" id="rO3-c0-Je5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uns-7c-EWl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="LS9-cS-y0T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2484" y="868"/>
         </scene>

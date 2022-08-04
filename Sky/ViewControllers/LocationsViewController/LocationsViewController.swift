@@ -47,6 +47,8 @@ class LocationsViewController: UITableViewController {
             break
         }
     }
+    
+    @IBAction func unwindToLocationsViewController(segue: UIStoryboardSegue) {}
 
 }
 
@@ -154,6 +156,7 @@ extension LocationsViewController {
     }
     
     // MARK: - Table view delegate
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let section = Section(rawValue: indexPath.section) else {
@@ -181,11 +184,11 @@ extension LocationsViewController {
 }
 
 extension LocationsViewController: AddLocationViewControllerDelegae {
-    func controller(_ controller: LocationsViewController, didAddLocation location: Location) {
+    func controller(_ controller: AddLocationViewController, didAddLocation location: Location) {
         UserDefaults.addLocation(location)
         
         favourites.append(location)
         
-        
+        tableView.reloadData()
     }
 }
