@@ -86,10 +86,20 @@ class RootViewController: UIViewController {
         let lat = currentLoaction.coordinate.latitude
         let lon = currentLoaction.coordinate.longitude
 
-        WeatherDataManager.shared.weatherDataAt(latitude: lat, longitude: lon).subscribe(onNext: {
-            self.currentWeatherController.weatherVM.accept(CurrentWeatherViewModel(weather: $0))
-            self.weekWeatherController.viewModel = WeekWeatherViewModel(weatherData: $0.daily.data)
-        }).disposed(by: bag)
+        let weather = WeatherDataManager.shared.weatherDataAt(latitude: lat, longitude: lon)
+            .share(replay: 1, scope: .whileConnected)
+            .observe(on: MainScheduler.instance)
+        
+        weather.map { CurrentWeatherViewModel(weather: $0) }
+            .bind(to: currentWeatherController.weatherVM)
+            .disposed(by: bag)
+        
+        weather.map { WeekWeatherViewModel(weatherData: $0.daily.data) }
+            .subscribe (onNext: {
+                self.weekWeatherController.viewModel = $0
+            })
+            .disposed(by: bag)
+
     }
     
     private func fetchCity() {
