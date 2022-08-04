@@ -8,28 +8,7 @@
 import UIKit
 
 struct CurrentWeatherViewModel {
-    var isLocationReady = false
-    var isWeatherReady = false
-    
-    var isUpdateReady: Bool {
-        return isLocationReady && isWeatherReady
-    }
-    
-    var location: Location! {
-        didSet {
-            isLocationReady = location != nil
-        }
-    }
-    
-    var weather: WeatherData! {
-        didSet {
-            isWeatherReady = weather != nil
-        }
-    }
-    
-    var city: String {
-        return location.name
-    }
+    var weather: WeatherData
     
     var temperature: String {
         let value = weather.currently.temperature
@@ -58,5 +37,11 @@ struct CurrentWeatherViewModel {
     
     var weatherIcon: UIImage {
         return UIImage.weatherIcon(of: weather.currently.icon)!
+    }
+    
+    static let empty = CurrentWeatherViewModel(weather: WeatherData.empty)
+    
+    var isEmpty: Bool {
+        return weather == WeatherData.empty
     }
 }

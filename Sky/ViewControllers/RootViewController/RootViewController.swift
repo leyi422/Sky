@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreLocation
+import RxSwift
+import RxCocoa
 
 class RootViewController: UIViewController {
     
@@ -17,6 +19,8 @@ class RootViewController: UIViewController {
     private let segueWeekWeather = "SegueWeekWeather"
     private let segueSettings = "SegueSettings"
     private let segueLocations = "SegueLocations"
+    
+    private var bag = DisposeBag()
     
     @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
     }
@@ -33,7 +37,6 @@ class RootViewController: UIViewController {
             }
             
             destination.delegate = self
-            destination.viewModel = CurrentWeatherViewModel()
             currentWeatherController = destination
         case segueWeekWeather:
             guard let destination = segue.destination as? WeekWeatherViewController else {
@@ -82,16 +85,11 @@ class RootViewController: UIViewController {
         
         let lat = currentLoaction.coordinate.latitude
         let lon = currentLoaction.coordinate.longitude
-        
-        WeatherDataManager.shared.weatherDataAt(latitude: lat, longitude: lon) { response, error in
-            if let error = error {
-                dump(error)
-            }
-            else if let response = response {
-                self.currentWeatherController.viewModel?.weather = response
-                self.weekWeatherController.viewModel = WeekWeatherViewModel(weatherData: response.daily.data)
-            }
-        }
+
+        WeatherDataManager.shared.weatherDataAt(latitude: lat, longitude: lon).subscribe(onNext: {
+            self.currentWeatherController.weatherVM.accept(CurrentWeatherViewModel(weather: $0))
+            self.weekWeatherController.viewModel = WeekWeatherViewModel(weatherData: $0.daily.data)
+        }).disposed(by: bag)
     }
     
     private func fetchCity() {
@@ -104,8 +102,8 @@ class RootViewController: UIViewController {
                 dump(error)
             }
             else if let city = placemarks?.first?.locality {
-                let l = Location(name: city, latitude: currentLoaction.coordinate.latitude, longitude: currentLoaction.coordinate.longitude)
-                self.currentWeatherController.viewModel?.location = l
+                let location = Location(name: city, latitude: currentLoaction.coordinate.latitude, longitude: currentLoaction.coordinate.longitude)
+                self.currentWeatherController.locationVM.accept(CurrentLocationViewModel(location: location))
             }
         }
     }

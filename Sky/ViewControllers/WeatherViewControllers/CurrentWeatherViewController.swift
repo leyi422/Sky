@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 protocol CurrentWeatherViewControllerDetegate: AnyObject {
     func locationButtonPressed(controller: CurrentWeatherViewController)
@@ -23,48 +25,49 @@ class CurrentWeatherViewController: WeatherViewController {
     
     weak var delegate: CurrentWeatherViewControllerDetegate?
     
+    private var bag = DisposeBag()
+    
+    var weatherVM: BehaviorRelay<CurrentWeatherViewModel> = BehaviorRelay(value: CurrentWeatherViewModel.empty)
+    var locationVM: BehaviorRelay<CurrentLocationViewModel> = BehaviorRelay(value: CurrentLocationViewModel.empty)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        Observable.combineLatest(locationVM, weatherVM) {
+            return ($0, $1)
+        }
+        .filter {
+            let (location, weather) = $0
+            return !location.isEmpty && !weather.isEmpty
+        }
+        .observe(on: MainScheduler.instance)
+        .subscribe(onNext: { [unowned self] in
+            let (location, weather) = $0
+            
+            self.activityIndicatorView.stopAnimating()
+            self.weatherContainerView.isHidden = false
+            
+            self.locationLabel.text = location.city
+            
+            self.temperatureLabel.text = weather.temperature
+            self.weatherIcon.image = weather.weatherIcon
+            self.humidityLabel.text = weather.humidity
+            self.summaryLabel.text = weather.summary
+            self.dateLabel.text = weather.date
+        })
+        .disposed(by: bag)
+    }
+    
+    func updateView() {
+        weatherVM.accept(weatherVM.value)
+        locationVM.accept(locationVM.value)
+    }
+    
     @IBAction func locationButtonPressed(_ sender: UIButton) {
         delegate?.locationButtonPressed(controller: self)
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
         delegate?.settingsButtonPressed(controller: self)
-    }
-    
-    var viewModel: CurrentWeatherViewModel? {
-        didSet {
-            DispatchQueue.main.async {
-                self.updateView()
-            }
-        }
-    }
-    
-    func updateView() {
-        activityIndicatorView.stopAnimating()
-        
-        if let vm = viewModel, vm.isUpdateReady {
-            updateWeatherContainer(with: vm)
-        }
-        else {
-            loadingFailedLabel.isHidden = false
-            loadingFailedLabel.text = "Fetch weather/location failed."
-        }
-    }
-    
-    func updateWeatherContainer(with vm: CurrentWeatherViewModel) {
-        weatherContainerView.isHidden = false
-        
-        locationLabel.text = vm.city
-        temperatureLabel.text = vm.temperature
-        weatherIcon.image = vm.weatherIcon
-        humidityLabel.text = vm.humidity
-        summaryLabel.text = vm.summary
-        dateLabel.text = vm.date
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 }
