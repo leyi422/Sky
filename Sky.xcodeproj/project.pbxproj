@@ -57,6 +57,7 @@
 		6289A98C289B6E23005A6864 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6289A98B289B6E23005A6864 /* RxSwift */; };
 		6289A98E289B75A0005A6864 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6289A98D289B75A0005A6864 /* CurrentLocationViewModel.swift */; };
 		6289A990289BC92D005A6864 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6289A98F289BC92D005A6864 /* CLLocationManager+Rx.swift */; };
+		62E2D8D728AB9A6C00D9C883 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2D8D628AB9A6C00D9C883 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		6279F1F7287D6A9F00BDF9F8 /* CurrentWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherUITests.swift; sourceTree = "<group>"; };
 		6289A98D289B75A0005A6864 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
 		6289A98F289BC92D005A6864 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		62E2D8D628AB9A6C00D9C883 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,6 +414,7 @@
 				6229E1EE2887EBE000AB8712 /* UserDefaults.swift */,
 				6229E21C28894A0D00AB8712 /* CLLocation.swift */,
 				6289A98F289BC92D005A6864 /* CLLocationManager+Rx.swift */,
+				62E2D8D628AB9A6C00D9C883 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				6229E218288948F600AB8712 /* LocationRepresentable.swift in Sources */,
 				6229E1F52887FEE300AB8712 /* SettingsTableViewCell.swift in Sources */,
 				6279F1E7287C043500BDF9F8 /* URLSessionDataTask.swift in Sources */,
+				62E2D8D728AB9A6C00D9C883 /* Date.swift in Sources */,
 				6229E2012888FBA300AB8712 /* WeekWeatherDayRepresentable.swift in Sources */,
 				6279F19D287BAF5100BDF9F8 /* SceneDelegate.swift in Sources */,
 			);
